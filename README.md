@@ -68,4 +68,16 @@ No, it's not microservice (pun intended)
 Divide and conquer. Think hard and develop a plan of how to deliver a feature in chunks. Any logical chunk won't take more than one to two weeks to develop and merge. If it takes more than this period, think even harder and divide it further.
 
 
+### Lesson 5
+
+One thing which I have found really challenging with regards to Microservice is Testing microservice based applications because As a QA you need to esnure that your micorservice works perfectly even when there are changes in another microservice on which your microservice is dependent on and the other microsevice who are dependent on your microservice also works fine. Some of the practices which we have used to maintain Quality of our application are -
+
+1. Large no of unit test to check quality of our feature.
+2. Good amount of contract tests ensuring that the contract between all the microservices are verified and changes in one microservice does not hamper the contract, Giving us the
+gurrantee that the other dependent microservices are not hampered. This practise has been followed diligently by all the Teams working on different microservices.
+3. At our microservice level we have written some API automation cases although even this is verified by most of our unit tests.
+4.we did not write UI Automation cases at microservive level as testing UI requires interaction with different microservices, We have few UI Automation cases covering major application flows and
+which is used by everyone to Test their microservice as a whole
+
+
 
