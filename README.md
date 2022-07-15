@@ -76,6 +76,7 @@ One thing which I have found really challenging with regards to Microservice is 
 2. Good amount of contract tests ensuring that the contract between all the microservices are verified and changes in one microservice does not hamper the contract, Giving us the
 gurrantee that the other dependent microservices are not hampered. This practise has been followed diligently by all the Teams working on different microservices.
 3. At our microservice level we have written some API automation cases although even this is verified by most of our unit tests.
+
 4.we did not write UI Automation cases at microservive level as testing UI requires interaction with different microservices, We have few UI Automation cases covering major application flows and
 which is used by everyone to Test their microservice as a whole
 
