@@ -127,5 +127,45 @@ Combine all these optimizations, and you would surely reduce execution time by a
 Remember this - "Less is more" in UI automation. Design a test such that it performs less UI actions, not more. This is contradictory to what UI automation is supposed to do, but this is how it works.
 
 
+### Lesson 7
+
+"Sir, I have two API test cases. TC1 makes a POST call and generates an Order ID. TC2 makes a DELETE call. TC2 needs the Order ID from TC1 so that it can be deleted. How do I pass it?"
+
+I often get asked about this scenario from my students. It's a fairly common scenario, but I see many folks struggle with it.
+
+Most of them end up creating an instance variable for the Order ID and share it among test cases. Additionally, some kind of test dependencies or priorities is set so that the tests execute in a specific order (POST -> UPDATE -> DELETE).
+
+Please avoid doing this.
+
+This will work well only when all tests are passing. But when an intermediate test fails, it will have undesired side effects.
+❌ A majority of tests will be skipped.
+❌ Since using a shared static variable, there will be chances of data leakage.
+❌ There will be challenges passing the same Order ID across test classes.
+
+I would instead try to keep my tests independent and have each of them generate their own test data (Order ID).
+
+The guiding principles are simple:
+✅A test must not fail or skip an unrelated test.
+✅A test should prepare its own test data. No data sharing among tests.
+✅Avoid using instance static variables.
+
+Yes, some extra API calls will be made as part of this, but that's ok given the advantages.
+
+How to accomplish this?
+I would create reusable methods for POST, DELETE, etc. and use those wherever required in my test cases.
+
+For e.g.
+
+A test for DELETE would look like this:
+String Id = postOrder().get("Id");
+assertThat(deleteOrder(Id).getStatusCode(), equalsTo(200));
+
+A test for UPDATE would look like this:
+String Id = postOrder().get("Id");
+assertThat(updateOrder(Id).getStatusCode(), equalsTo(200));
+
+With this, even if the DELETE test fails, UPDATE would not be skipped. It will be executed and any potential issue with UPDATE would also be unearthed. Both tests will run independently and would add to reliability. There is no data sharing, so no chances of data leakage as well. You can even run those tests in parallel to save time if need be.
+
+
 
 
