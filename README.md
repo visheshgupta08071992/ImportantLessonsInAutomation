@@ -167,7 +167,7 @@ assertThat(updateOrder(Id).getStatusCode(), equalsTo(200));
 With this, even if the DELETE test fails, UPDATE would not be skipped. It will be executed and any potential issue with UPDATE would also be unearthed. Both tests will run independently and would add to reliability. There is no data sharing, so no chances of data leakage as well. You can even run those tests in parallel to save time if need be.
 
 
-### Lesson 7
+### Lesson 8
 
 In REST API automation, using POJOs may result in unnecessary code. So is it really a feasible option?
 
