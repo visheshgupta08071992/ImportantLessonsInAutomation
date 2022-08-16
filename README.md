@@ -201,5 +201,36 @@ In my view,
 👉 If a JSON is used only for a particular test, even storing that as a String within the test itself should suffice.
 
 
+### Lesson 9
+
+One of my students was asked an interesting interview question - "How to validate API pagination?"
+
+I realized this could be something important for folks who are looking out for #qajobs
+
+So I thought to explore it and come up with scenarios that can be validated automatically using REST Assured.
+
+In layman terms, pagination is used when there is a lot of data to send but the client doesn't want all of it in one go. A page is simply a representation of resources.
+
+In my online REST Assured course, I have used Spotify API (one of the best public APIs out there!). But, I didn't automate pagination even though the API implements it.
+
+Spotify API takes two query parameters, limit and offset. Limit is used to set the number of resources a page should return. Offset is used to set the starting point. For e.g. if there are 10 pages and offset is 5, then the server will send data from the 5th page.
+
+Each Spotify API sends a standard paging object in the response. The fields are href, items, limit, next, offset, previous, total (Spotify URLs are in the comments).
+
+Our job is to validate this object and here're the possible tests to automate:
+1. When resources are returned, response should be 200
+1. "href" should have a link that returns full results
+2. Number of items in the response should match the limit sent in the request
+3. "next" should have the link to the next page
+4. "previous" should have the link to the previous page if the requested page is not the first page
+5. If the request page is the first page, then previous should be null
+6. If the request page does not exist, then 404 should be returned
+7. When second page is requested, "previous" should have the link to first page
+
+And so on.
+
+More or less, any standard pagination implementation will have this paging object.
+
+
 
 
