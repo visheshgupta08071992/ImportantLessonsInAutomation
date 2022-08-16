@@ -167,5 +167,39 @@ assertThat(updateOrder(Id).getStatusCode(), equalsTo(200));
 With this, even if the DELETE test fails, UPDATE would not be skipped. It will be executed and any potential issue with UPDATE would also be unearthed. Both tests will run independently and would add to reliability. There is no data sharing, so no chances of data leakage as well. You can even run those tests in parallel to save time if need be.
 
 
+### Lesson 7
+
+In REST API automation, using POJOs may result in unnecessary code. So is it really a feasible option?
+
+I hear this often. Today I got the same query.
+
+Yes, this can happen, but mostly as a result of poor design.
+
+POJOs represent objects.
+Objects are reused across APIs.
+So there is a lot of reusability.
+
+It's not like we need to create seperate POJOs for each API.
+
+POJOs are like blocks.
+You will create a limited number of blocks only once, and you will be re-using the same blocks to build different objects.
+
+POJOs have other advantages too: readability, compile time type safety and an indirect validation of JSON schema.
+
+Spring Boot developers often use POJOs while developing REST APIs. If test code can reside in the same dev repo, their POJOs can be reused for automation purposes. So a lot of rework can be avoided. This would also increase collaboration between dev and test.
+
+A lot of POJO boilerplate can also be reduced with libraries like Lombok.
+
+Having said all that, POJOs are not the only way to store objects. Other mechanisms can also be used.
+
+In my view,
+
+👉 POJOs are good for not so complex JSONs (This can be subjective too) with good reusability of objects across APIs. POJOs can be clubbed with various libraries to create templates that can be used to drive the test multiple times.
+
+👉 Files are good for static, huge JSON with no or poor reusability of objects.
+
+👉 If a JSON is used only for a particular test, even storing that as a String within the test itself should suffice.
+
+
 
 
