@@ -232,5 +232,12 @@ And so on.
 More or less, any standard pagination implementation will have this paging object.
 
 
+### Lesson 10
+
+I have seen majority of the Automation QA folks, they just want to automate for the sake of doing it or to impress management or other functional QA folks. 
+But they forget one thing, your roots are from testing, you are a tester end of the day. 
+Your automation test should find the bugs, so that it can be leveraged at the time of releases and to write a better automation test case, you need to be really good in your product knowledge. What I see these days everyone is learning automation, just to get some good package or offers from some cool product companies.
+And then you hear - hey! I don't do functional testing manually. I do only automation and I do magics - This attitude should be changed. 
+EOD, you are loosing the importance of testing. If your automation test is not finding the bugs, it's just a piece of garbage code then. 
 
 
