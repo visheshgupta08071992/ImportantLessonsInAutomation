@@ -241,3 +241,16 @@ And then you hear - hey! I don't do functional testing manually. I do only autom
 EOD, you are loosing the importance of testing. If your automation test is not finding the bugs, it's just a piece of garbage code then. 
 
 
+### Lesson 11
+
+You have to think like a #tester
+And act like a #developer
+to become a #rockstar test engineer.
+
+This is a very rare skillset and if you work towards this then you can end up being an extremely valuable asset for any company.
+
+There are lot of people who have brilliant testing mind but poor development skills and at the same time we have so many good developers without having a proper testing mindset.
+
+The future of testing is in the hands of people who have solid engineering skiils with rich testing domain experience.
+
+
