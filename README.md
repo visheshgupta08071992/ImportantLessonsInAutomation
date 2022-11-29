@@ -258,15 +258,49 @@ The future of testing is in the hands of people who have solid engineering skiil
 
 Common API Bugs and Test Cases for API Testing
 
-1. Wrong Error Codes.(Develops made some mistakes and put wrong status code for Different request).
+**1. Wrong Error Codes.(Develops made some mistakes and put wrong status code for Different request).**
 
-Following are correct status Code :
-Post Request - 201 ,Created (The request succeeded, and a new resource was created as a result.)
-Get Request - 200 , Successful (GET: The resource has been fetched and transmitted in the message body.)
-Patch/PUT - 200 , Successful(The resource describing the result of the action is transmitted in the message body.)
-Delete - 204 , (No Content ) status code if the action has been enacted and no further information is to be supplied.)
+Following are correct status Code : </br>
+Post Request - 201 ,Created (The request succeeded, and a new resource was created as a result.) </br>
+Get Request - 200 , Successful (GET: The resource has been fetched and transmitted in the message body.) </br>
+Patch/PUT - 200 , Successful(The resource describing the result of the action is transmitted in the message body.) </br>
+Delete - 204 , (No Content ) status code if the action has been enacted and no further information is to be supplied.) </br>
 
-Client Error responses:
+**2. Missing Keys**
+You have certain keys which are important , like Id should be integer or not null.
+But developer missed that key.
+
+**3.Empty Post or Patch (Update) are not Handled properly.**
+
+**4. We can do Black box Testing in API testing, like there is some input field is there 
+Age, we can enter empty field,  less than minimum value ,  within the range, more than maximum value.**
+
+**5. Keys Verification:**
+If we have JSON ,XML APis we should verify its that all the keys are coming.
+
+**6. Have to test JSON, XML Schema validation.**
+
+**7.Verify the JSON Schema validation , Verify the Field type, Verify the Mandatory fields**
+
+**8.Verify the Response Header & Negative Test cases response** 
+
+**9. Verify that How the Error codes are handled**
+
+**10.Verify the response HTTP status code**
+
+**11. Valid Response Payload**
+
+**12. Chaining Request verification** 
+
+**13.Verification of API with Data parameters**
+
+**14. End to End CRUD flows Test cases** 
+
+**15. Database integrity Test Cases**
+
+**16.File Upload test cases(with different extension file like pdf, txt, exe etc)**
+
+**Client Error responses:**
 
 400 Bad Request - The server cannot or will not process the request due to something that is perceived to be a client error 
 (e.g., malformed request syntax, invalid request message framing, or deceptive request routing).
@@ -281,7 +315,7 @@ The client does not have access rights to the content; that is, it is unauthoriz
 The server cannot find the requested resource. In the browser, this means the URL is not recognized.
 In an API, this can also mean that the endpoint is valid but the resource itself does not exist. 
 
-Server error responses:
+**Server error responses:**
 
 500 Internal Server Error:
 The request method is not supported by the server and cannot be handled. 
@@ -293,38 +327,6 @@ This error response means that the server, while working as a gateway to get a r
 
 504 Gateway Timeout -This error response is given when the server is acting as a gateway and cannot get a response in time.
 
-2. Missing Keys
-You have certain keys which are important , like Id should be integer or not null.
-But developer missed that key.
 
-3.Empty Post or Patch (Update) are not Handled properly.
-
-4. We can do Black box Testing in API testing, like there is some input field is there 
-Age, we can enter empty field,  less than minimum value ,  within the range, more than maximum value.
-
-5. Keys Verification:
-If we have JSON ,XML APis we should verify its that all the keys are coming.
-
-6. Have to test JSON, XML Schema validation.
-
-7.Verify the JSON Schema validation , Verify the Field type, Verify the Mandatory fields
-
-8.Verify the Response Header & Negative Test cases response 
-
-9. Verify that How the Error codes are handled
-
-10.Verify the response HTTP status code
-
-11. Valid Response Payload
-
-12. Chaining Request verification 
-
-13.Verification of API with Data parameters
-
-14. End to End CRUD flows Test cases 
-
-15. Database integrity Test Cases
-
-16.File Upload test cases(with different extension file like pdf, txt, exe etc)
 
 
