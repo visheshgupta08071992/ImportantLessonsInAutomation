@@ -328,5 +328,51 @@ This error response means that the server, while working as a gateway to get a r
 504 Gateway Timeout -This error response is given when the server is acting as a gateway and cannot get a response in time.
 
 
+### Lesson 13
+
+*How to avoid token getting logged in RestAssured?*
+
+*First let’s understand what is logging used for in Rest Assured?
+
+When you fire any request via rest assured and if that request if failing with non-200 status code, then Logging the Request fired and Response received from the server will help us to debug the Issue further.
+
+The Problem in Logging Everything ->
+
+When we log everything ,the sensitive Tokens also gets logged along with it with actual value. Generally these logs can be pushed to any specific server if we have or we can look at it in the Jenkins console output. Assume we are running a production sanity for all critical cases and you enabled logging for it. The result is the actual production bearer token will get logged in case of Production Sanity which any person who have access can see.
+
+Syntax to log everything in Rest Assured :-
+
+Response response = given().baseURI(“You base url”).headers(“key”,”value”).when().get(“api-path”).then().log().all().extract().response();
+
+How to avoid it?
+
+The below syntax will help you in avoiding the logging of any sensitive Information of your project —
+config(config.logConfig(LogConfig.logConfig().blacklistHeader(“HeaderName”)));
+
+Code Sample -
+
+Response resp = given().
+baseUri(“https://lnkd.in/gNm-aNgS").
+header(“Content-Type”,”application/json”).
+header(“Authorization”,”Bearer token-value”).
+config(config.logConfig(LogConfig.logConfig().blacklistHeader(“Authorization”))).
+log().all().
+when().
+get(“/api/path”).
+then().
+assertThat().
+statusCode(200)
+.extract()
+.response();
+
+Sample Output -
+
+Headers: Authorization=[ BLACKLISTED ]
+Accept=*/*
+Content-Type=application/json
+
+As you can see above, the Authorization header is blacklisted and thus we have achieved avoiding of sensitive Information getting logged
+
+
 
 
