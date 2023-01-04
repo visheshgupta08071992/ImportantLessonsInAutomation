@@ -374,5 +374,10 @@ Content-Type=application/json
 As you can see above, the Authorization header is blacklisted and thus we have achieved avoiding of sensitive Information getting logged
 
 
+### Lesson 14
+Test automation by itself DOES NOT ensure a product is of high quality because quality isn't just the absence of bugs. It is way way beyond that.
+
+Working as expected is NOT high quality. That's bare minimum quality.
+
 
 
