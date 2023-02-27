@@ -380,4 +380,38 @@ Test automation by itself DOES NOT ensure a product is of high quality because q
 Working as expected is NOT high quality. That's bare minimum quality.
 
 
+### Lesson 15
+
+I interviewed a candidate with 5+ years experience in API Testing. Based on the #work #experience and the #resume shared, these were some of questions that I discussed
+
+1. Why API Testing?
+2. Is there any difference between SOAP and REST API testing? If so, how?
+3. Key things you test in an API - let's say a GET API to fetch a list of 5 records with id and name
+4. GET vs POST
+5. POST vs PUT vs PATCH - example for each
+6. What do you mean when you say PUT is idempotent? Conditions for idempotency?
+7. Do you follow any strategy for sending large payloads in POST.
+8. Is it a good idea to have assertions for request headers when testing apis?
+9. How do you get a request header in Rest-Assured?
+10. If I send a text file as an input in a POST call, what will be the content-type?
+11. Key things to test when you API response feeds into a down stream system?
+12. URI vs URL - with a simple example.
+13. 𝐂𝐚𝐧 𝐲𝐨𝐮 𝐞𝐱𝐩𝐥𝐚𝐢𝐧 𝐦𝐨𝐫𝐞 𝐚𝐛𝐨𝐮𝐭 𝐭𝐡𝐞 𝐉𝐖𝐓 𝐟𝐨𝐫𝐦𝐚𝐭 𝐚𝐧𝐝 𝐡𝐨𝐰 𝐢𝐭 𝐰𝐨𝐫𝐤𝐬 𝐟𝐨𝐫 𝐚𝐮𝐭𝐡𝐞𝐧𝐭𝐢𝐜𝐚𝐭𝐢𝐨𝐧 𝐢𝐧 𝐚𝐧 𝐀𝐏𝐈﹖
+14. Do you know if caching is applied in the rest api's that you test? How do you test caching in api's
+15. How do you test expired or invalid tokens in your API's?
+16. 𝐇𝐨𝐰 𝐝𝐨 𝐲𝐨𝐮 test 𝐮𝐬𝐞𝐫 𝐫𝐨𝐥𝐞𝐬 𝐚𝐧𝐝 𝐩𝐞𝐫𝐦𝐢𝐬𝐬𝐢𝐨𝐧𝐬 𝐢𝐧 𝐲𝐨𝐮𝐫 𝐀𝐏𝐈, tell us some of the best practices that you follow for testing such user permissions in API's.
+17. Have you heard of the term rate-limiting? Can you explain when should we use rate limiting in API's
+18. Do you generate reports of the api tests that you run? What are some key attributes to include in the report.
+19. Have you heard of the term api gateway? What does it do?
+20. What is the difference in path param and query params?
+21. Do we need to use POJO class and serialisation in RestAssured, when we can directly send request body in the form of String?
+22. Can I use cookies with rest assured - if so how can I set a cookie for a domain?
+23. Do you know what is a HEAD request? Can you think of a scenario when HEAD request would be needed.
+24. Is POST a cacheable method? Is PUT a cacheable method?
+25. Difference between api virtualisation and mocking?
+26. What is JSON Schema? Can I use same json schema for validating the response of two different api's?
+27. What is API caching and in how many ways can we cache api response.
+#strategy #content #testing
+
+
 
