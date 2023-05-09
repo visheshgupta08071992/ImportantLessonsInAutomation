@@ -413,5 +413,10 @@ I interviewed a candidate with 5+ years experience in API Testing. Based on the 
 27. What is API caching and in how many ways can we cache api response.
 #strategy #content #testing
 
+### Lesson 16
+We have been on a journey to implement Continuous testing (CI & CD) as a tech culture and mindset along with the required tooling .
+Majorly for backend , there is a CI pipeline (15-20 mins) implemented on Jenkins which runs on a webhook triggered from bitbucket on every PR creation. This covers build, deploy, and test phase of the pipeline for early feedback using docker/k8s/cloud servers/etc.
+Post that, there is a CD pipeline (2-3 hours) which has UI/API/Security/Performance checks before the final production deployment.
+
 
 
