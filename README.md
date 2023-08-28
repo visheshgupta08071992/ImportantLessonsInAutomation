@@ -396,21 +396,73 @@ I interviewed a candidate with 5+ years experience in API Testing. Based on the 
 10. If I send a text file as an input in a POST call, what will be the content-type?
 11. Key things to test when you API response feeds into a down stream system?
 12. URI vs URL - with a simple example.
+
 13. 𝐂𝐚𝐧 𝐲𝐨𝐮 𝐞𝐱𝐩𝐥𝐚𝐢𝐧 𝐦𝐨𝐫𝐞 𝐚𝐛𝐨𝐮𝐭 𝐭𝐡𝐞 𝐉𝐖𝐓 𝐟𝐨𝐫𝐦𝐚𝐭 𝐚𝐧𝐝 𝐡𝐨𝐰 𝐢𝐭 𝐰𝐨𝐫𝐤𝐬 𝐟𝐨𝐫 𝐚𝐮𝐭𝐡𝐞𝐧𝐭𝐢𝐜𝐚𝐭𝐢𝐨𝐧 𝐢𝐧 𝐚𝐧 𝐀𝐏𝐈﹖
-14. Do you know if caching is applied in the rest api's that you test? How do you test caching in api's
-15. How do you test expired or invalid tokens in your API's?
-16. 𝐇𝐨𝐰 𝐝𝐨 𝐲𝐨𝐮 test 𝐮𝐬𝐞𝐫 𝐫𝐨𝐥𝐞𝐬 𝐚𝐧𝐝 𝐩𝐞𝐫𝐦𝐢𝐬𝐬𝐢𝐨𝐧𝐬 𝐢𝐧 𝐲𝐨𝐮𝐫 𝐀𝐏𝐈, tell us some of the best practices that you follow for testing such user permissions in API's.
-17. Have you heard of the term rate-limiting? Can you explain when should we use rate limiting in API's
-18. Do you generate reports of the api tests that you run? What are some key attributes to include in the report.
-19. Have you heard of the term api gateway? What does it do?
-20. What is the difference in path param and query params?
-21. Do we need to use POJO class and serialisation in RestAssured, when we can directly send request body in the form of String?
-22. Can I use cookies with rest assured - if so how can I set a cookie for a domain?
-23. Do you know what is a HEAD request? Can you think of a scenario when HEAD request would be needed.
-24. Is POST a cacheable method? Is PUT a cacheable method?
-25. Difference between api virtualisation and mocking?
-26. What is JSON Schema? Can I use same json schema for validating the response of two different api's?
-27. What is API caching and in how many ways can we cache api response.
+
+Sure! JWT stands for JSON Web Token. It is a compact and self-contained way for securely transmitting information between parties as a JSON object. JWTs can be used for various purposes, such as authentication and authorization in web applications.
+
+JWTs are composed of three parts: a header, a payload, and a signature. Let me explain each part in more detail:
+
+1. Header: The header contains information about how the JWT is encoded and signed. It typically consists of two parts: the algorithm used for signing the token and the token type itself (which is JWT).
+
+Example: 
+```
+{
+  "alg": "HS256",
+  "typ": "JWT"
+}
+```
+
+2. Payload: The payload contains the actual claims or statements about the user or any other data. These claims can be any custom information or predefined standard claims like the user's ID, username, email, role, etc.
+
+Example:
+```
+{
+  "sub": "1234567890",
+  "name": "John Doe",
+  "email": "johndoe@example.com",
+  "role": "admin"
+}
+```
+
+3. Signature: The signature is a combination of the header, payload, and a secret key. It is used to verify the integrity of the token and ensure that it has not been tampered with. The server can use this signature to authenticate the token and determine if it is valid.
+
+Example:
+```
+HMACSHA256(
+  base64UrlEncode(header) + "." +
+  base64UrlEncode(payload),
+  secretKey
+)
+```
+
+To summarize the process, here are the steps involved in working with JWTs:
+
+1. Authentication: When a user logs in or authenticates, the server generates a JWT and sends it back to the client.
+
+2. Authorization: The client includes the JWT in subsequent requests to the server, typically in the Authorization header using the Bearer scheme (e.g., "Bearer <token>"). This provides proof of the user's identity and allows the server to authorize the requested actions based on the claims in the payload.
+
+3. Token Verification: On the server side, the received JWT is verified by validating its signature using the secret key. If the signature is valid, the server can trust the information in the JWT and proceed with processing the request.
+
+4. Refreshing and Expiration: JWTs can have an expiration date/time set in the payload. If a token expires, the client needs to obtain a new one by re-authenticating.
+
+Overall, JWTs provide a secure and efficient way for transmitting and verifying information between parties, making them widely used in modern web applications.
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+15. Do you know if caching is applied in the rest api's that you test? How do you test caching in api's
+16. How do you test expired or invalid tokens in your API's?
+17. 𝐇𝐨𝐰 𝐝𝐨 𝐲𝐨𝐮 test 𝐮𝐬𝐞𝐫 𝐫𝐨𝐥𝐞𝐬 𝐚𝐧𝐝 𝐩𝐞𝐫𝐦𝐢𝐬𝐬𝐢𝐨𝐧𝐬 𝐢𝐧 𝐲𝐨𝐮𝐫 𝐀𝐏𝐈, tell us some of the best practices that you follow for testing such user permissions in API's.
+18. Have you heard of the term rate-limiting? Can you explain when should we use rate limiting in API's
+19. Do you generate reports of the api tests that you run? What are some key attributes to include in the report.
+20. Have you heard of the term api gateway? What does it do?
+21. What is the difference in path param and query params?
+22. Do we need to use POJO class and serialisation in RestAssured, when we can directly send request body in the form of String?
+23. Can I use cookies with rest assured - if so how can I set a cookie for a domain?
+24. Do you know what is a HEAD request? Can you think of a scenario when HEAD request would be needed.
+25. Is POST a cacheable method? Is PUT a cacheable method?
+26. Difference between api virtualisation and mocking?
+27. What is JSON Schema? Can I use same json schema for validating the response of two different api's?
+28. What is API caching and in how many ways can we cache api response.
 #strategy #content #testing
 
 ### Lesson 16
