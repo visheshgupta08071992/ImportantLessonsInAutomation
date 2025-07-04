@@ -470,5 +470,18 @@ We have been on a journey to implement Continuous testing (CI & CD) as a tech cu
 Majorly for backend , there is a CI pipeline (15-20 mins) implemented on Jenkins which runs on a webhook triggered from bitbucket on every PR creation. This covers build, deploy, and test phase of the pipeline for early feedback using docker/k8s/cloud servers/etc.
 Post that, there is a CD pipeline (2-3 hours) which has UI/API/Security/Performance checks before the final production deployment.
 
+### Lesson 17
+Leetcode made us all think O(n²) is the devil.
+
+But your API serving 100 users doesn't care about algorithmic complexity.
+
+What actually matters for most developers -
+1./ Database query optimization - N+1 queries kill performance
+2./ Caching strategies - Redis > perfect algorithms
+3./ Network calls - reduce round trips, not time complexity
+4./ Memory leaks - your O(1) is useless if you leak memory
+
+Premature optimization based on Big O is still premature optimization.
+
 
 
