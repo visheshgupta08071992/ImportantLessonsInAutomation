@@ -481,6 +481,46 @@ What actually matters for most developers -
 3./ Network calls - reduce round trips, not time complexity
 4./ Memory leaks - your O(1) is useless if you leak memory
 
+
+### Lesson 18
+
+Fastest Way to Automate Login Flow 🤓
+
+When I started building UI automation, I thought logging in was simple:
+- Open login page
+- Enter username + password
+- Click login
+- Done, right?
+
+But soon reality hit:
+- Several test repeated the login again and again
+- 2FA, captchas, and redirects made tests flaky
+- And the whole suite got slower and slower
+
+That’s when I realised something important 👇
+
+ 👉 We don’t need to test the login screen in every flow. We just need to start authenticated.
+
+🔑 The Trick: Cookie Injection
+
+1️⃣ Fetch the auth token with any HTTP client (Rest-Assured, OkHttp, , Playwright’s own APIRequest, etc).
+ 👉 If your UI automation framework already integrates with the backend stack, reuse the same client.
+2️⃣ Launch the /robots.txt page of your app’s domain.
+ ⚡ It’s the fastest page on any website (served plain text, no UI load). This gives your automation a valid domain context for cookie injection.
+3️⃣ Inject the cookie with the token into the browser session
+4️⃣ Navigate to the main page under test — boom 💥 you’re already logged in!
+
+🎯 Why it works
+🚀 Faster test runs (skip login on every test)
+🛡 More stable (no flakiness from captchas/2FA)
+🎯 Focus on real business flows, not boilerplate login
+
+💡 Cookie-based login is one of those small tricks that massively improves automation stability and speed.
+
+
+<img width="733" height="775" alt="image" src="https://github.com/user-attachments/assets/cc40bd5e-25f1-4ec2-9b90-3708fc083cab" />
+
+
 Premature optimization based on Big O is still premature optimization.
 
 
